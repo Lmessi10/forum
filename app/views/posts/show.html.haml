@@ -1,6 +1,13 @@
 %h1= @post.title
 %h3= @post.content
 
+#comments
+  %h2= @post.comments.count
+  = render @post.comments
+
+  %h3 Reply to thread
+  = render 'comments/form'
+
 = link_to "Edit", edit_post_path
 = link_to "Delete", post_path, method: :delete, data: { confirm: "Are you scure?"}
 = link_to "Home", root_path
